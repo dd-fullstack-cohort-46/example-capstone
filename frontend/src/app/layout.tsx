@@ -17,9 +17,12 @@ export default function RootLayout(props : RootLayoutProps) {
 	const { children } = props
 	return (
 		<html className={"dark"} suppressHydrationWarning>
+		<head>
+			<ThemeModeScript/>
+		</head>
+		<body className={"bg-gray-50 text-stone-800 dark:bg-gray-800 dark:text-slate-200"} >
 
-		<body >
-		{children}
+		<Flowbite>{children}</Flowbite>
 		</body>
 		</html>
 	)
