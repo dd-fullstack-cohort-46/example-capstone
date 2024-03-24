@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import {Flowbite, DarkThemeToggle, ThemeModeScript} from 'flowbite-react';
 import './globals.css'
 import React from "react";
+import { Signika } from "next/font/google"
 
 
 export const metadata: Metadata = {
