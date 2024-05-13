@@ -1,3 +1,5 @@
+'use client'
+
 
 import { Sidebar } from "flowbite-react";
 import type { FC } from "react";

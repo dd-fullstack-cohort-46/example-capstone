@@ -1,11 +1,11 @@
+"use client";
 import React from "react";
+import {PageProps} from "@/utils/interfaces/NextComponent";
 
-export default function Home() {
+export default function Home(props: PageProps) {
 	return (
 		<>
-		<h1 className="text-3xl font-bold underline">Is this thing on?</h1>
-
-
+<h1>Welcome to the home page</h1>
 
 		</>
 

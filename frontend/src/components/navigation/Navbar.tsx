@@ -5,7 +5,7 @@ import type { FC } from "react";
 import { HiMenuAlt1, HiX } from "react-icons/hi";
 import {isSmallScreen, useSidebarContext} from "@/utils/context/sidebar.context";
 
-export const DashboardNavbar: FC<Record<string, never>> = function () {
+export const TopNavbar: FC<Record<string, never>> = function () {
 	const { isCollapsed: isSidebarCollapsed, setCollapsed: setSidebarCollapsed } =
 		useSidebarContext();
 
@@ -31,12 +31,6 @@ export const DashboardNavbar: FC<Record<string, never>> = function () {
 								)}
 							</button>
 							<Navbar.Brand href="/">
-								<Image
-									alt="Flowbite logo"
-									height="24"
-									src="/favicon.png"
-									width="24"
-								/>
 								<span className="self-center whitespace-nowrap px-3 text-xl font-semibold dark:text-white">
                   Flowbite
                 </span>

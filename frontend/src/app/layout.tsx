@@ -3,6 +3,15 @@ import {Flowbite, DarkThemeToggle, ThemeModeScript} from 'flowbite-react';
 import './globals.css'
 import React from "react";
 
+import {Signika as FontSans} from 'next/font/google';
+import {cn} from "@/utils/tailwind.utils";
+import {theme} from "@/utils/theme.utils";
+import {LayoutContent} from "@/app/LayoutContent";
+import {SidebarProvider} from "@/utils/context/sidebar.context";
+
+
+
+
 
 export const metadata: Metadata = {
 	title: 'Title Goes Here',
@@ -13,17 +22,32 @@ type RootLayoutProps = {
 	children: React.ReactNode
 }
 
+
+const fontSans = FontSans({
+	subsets: ["latin"],
+	variable: "--font-sans",
+	weight: "300",
+})
 export default function RootLayout(props : RootLayoutProps) {
 	const { children } = props
 	return (
-		<html className={"dark"} suppressHydrationWarning>
+		<html suppressHydrationWarning>
 		<head>
+
+
+			<link href="/frontend/public/favicon.svg" rel="icon" type="image/x-icon"/>
 			<ThemeModeScript/>
 		</head>
-		<body className={"bg-gray-50 text-stone-800 dark:bg-gray-800 dark:text-slate-200"} >
+		<body className={cn("min-h-screen bg-background font-sans antialiased bg-gray-50 text-stone-800 dark:bg-gray-800 dark:text-slate-200", fontSans.variable)} >
 
-		<Flowbite>{children}</Flowbite>
+		<Flowbite theme={{theme: theme}}>
+
+			<SidebarProvider>
+				<LayoutContent>{children}</LayoutContent>
+			</SidebarProvider>
+		</Flowbite>
 		</body>
 		</html>
 	)
 }
+
