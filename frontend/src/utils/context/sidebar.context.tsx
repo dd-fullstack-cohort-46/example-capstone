@@ -31,13 +31,9 @@ export const SidebarProvider: FC<PropsWithChildren> = function ({ children }) {
 
 	}, []);
 
-	// Close Sidebar on page change on mobile
+	// Close Sidebar on page change
 	useEffect(() => {
-		if (isSmallScreen()) {
 			setCollapsed(true);
-		} else {
-			setCollapsed(false);
-		}
 	}, [location]);
 
 	// Close Sidebar on mobile tap inside main content
