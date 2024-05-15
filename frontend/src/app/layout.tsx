@@ -41,10 +41,7 @@ export default function RootLayout(props : RootLayoutProps) {
 		<body className={cn("min-h-dvh bg-background font-sans antialiased bg-gray-50 text-stone-800 dark:bg-gray-800 dark:text-slate-200", fontSans.variable)} >
 
 		<Flowbite theme={{theme: theme}}>
-
-			<SidebarProvider>
-				<LayoutContent>{children}</LayoutContent>
-			</SidebarProvider>
+			{children}
 		</Flowbite>
 		</body>
 		</html>
