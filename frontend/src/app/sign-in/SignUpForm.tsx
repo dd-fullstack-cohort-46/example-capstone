@@ -6,7 +6,7 @@ export function SignUpForm() {
 	const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false)
 	return (
 		<>
-			<a href='#sign-up-modal' className="block cursor-pointer text-blue-500 active:text-purple-500 " onClick={() => {
+			<a className="block cursor-pointer text-blue-500 active:text-purple-500 " onClick={() => {
 
 				console.log("clicked")
 				setIsModalOpen(true)
