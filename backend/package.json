@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "ts-node ./src/index.ts",
-    "dev": "./node_modules/nodemon/bin/nodemon.js -e ts  --exec \"npm run compile\"",
+
+    "dev": "npx nodemon --delay 750ms -e ts  --exec \"ts-node ./src/index.ts\"",
     "test": "echo \\\"Error: no src/test specified\\\" && exit 1",
     "clean": "ts-standard --fix",
     "lint": "ts-standard"
@@ -14,6 +14,8 @@
   "author": "George Kephart",
   "license": "Apache-2.0",
   "dependencies": {
+    "@swc/core": "^1.7.18",
+    "@swc/helpers": "^0.5.12",
     "argon2": "^0.27.0",
     "axios": "^0.21.1",
     "cloudinary": "^1.28.1",

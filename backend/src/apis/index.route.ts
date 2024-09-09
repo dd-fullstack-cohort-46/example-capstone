@@ -5,7 +5,7 @@ const basePath = '/apis'
 
 const router = Router()
 
-router.route('/')
+router.route('/ssss')
   .get(indexController)
 
 export const indexRoute = { basePath, router }
