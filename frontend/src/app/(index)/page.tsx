@@ -1,9 +1,9 @@
-"use server"
-;
-import {Suspense} from "react";
+'use server'
 import {ThreadCard} from "@/components/ThreadCard";
+import {fetchAllThreads} from "@/utils/models/thread/thread.model";
 
 export default async function () {
+	const threads = await fetchAllThreads()
 	return (
 		<>
 			<main className="container lg:w-2/3 grid mx-auto">
@@ -42,11 +42,7 @@ export default async function () {
 							</div>
 						</div>
 					</form>
-					<ThreadCard />
-					<ThreadCard />
-					<ThreadCard />
-					<ThreadCard />
-					<ThreadCard />
+					{threads.map((thread) => <ThreadCard key={thread.threadId} thread={thread}/>)}
 
 
 				</div>

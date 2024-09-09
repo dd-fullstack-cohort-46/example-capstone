@@ -1,5 +1,13 @@
+import {Thread} from "@/utils/models/thread/thread.validator";
+import {format} from "date-fns";
+import {getProfileByProfileId} from "@/utils/models/profile/profile.model";
 
-export async function ThreadCard() {
+
+type Props = {thread: Thread}
+export async function ThreadCard(props: Props) {
+	const {thread} = props
+const profile = await getProfileByProfileId(thread.threadProfileId)
+	const date = format(thread.threadDatetime, 'MMMM do, yyyy')
 	return (
 		<article className="p-6 border border-gray-200 text-base">
 			<header className="flex justify-between items-center mb-2">
@@ -7,16 +15,16 @@ export async function ThreadCard() {
 					<p className="inline-flex items-center mr-3 text-sm font-semibold">
 						<img
 						className="mr-2 w-8 h-8 rounded-full"
-						src={'/profile.png'}
-					/>User of the names</p>
+						src={profile.profileImageUrl ?? '/profile.png'}
+					/>{profile.profileName}</p>
 					<p className="text-sm ">
-						<time dateTime="2022-02-08"
-						      title="February 8th, 2022">February 8th, 2022
+						<time dateTime={date}
+						      title={date}>{date}
 						</time>
 					</p>
 				</div>
 			</header>
-			<p className="">Listen to your sister, Morty. To live is to risk it all, otherwise you’re just an inert chunk of randomly assembled molecules drifting wherever the universe blows you</p>
+			<p className="">{thread.threadContent}</p>
 			<div className="flex items-center mt-4 space-x-4">
 				<button type="button"
 				        className="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
