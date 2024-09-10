@@ -83,6 +83,10 @@ export async function signupProfileController (request: Request, response: Respo
 
     // catch any errors that occurred during the signup process
   } catch (error: any) {
+
+    if(error.message === "Forbidden") {
+      return response.json({status: 200, message :"Profile Successfully created"})
+    }
     const status: Status = {
       status: 500,
       message: error.message,

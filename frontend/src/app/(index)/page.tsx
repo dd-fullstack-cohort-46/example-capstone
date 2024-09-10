@@ -1,14 +1,22 @@
 'use server'
 import {ThreadCard} from "@/components/ThreadCard";
 import {fetchAllThreads} from "@/utils/models/thread/thread.model";
+import {getSession} from "@/utils/session.utils";
+import {redirect} from "next/navigation";
 
 export default async function () {
 	const threads = await fetchAllThreads()
+	const session = await getSession()
+	if (!session) {
+		return(redirect('/sign-in'))
+	}
+
+	const signedInUser = session.profile
 	return (
 		<>
 			<main className="container lg:w-2/3 grid mx-auto">
 				<div className="col-span-full p-0 border border-base-content">
-					<h1 className="text-3x p-4 font-bold">Welcome User!</h1>
+					<h1 className="text-3x p-4 font-bold">Welcome {signedInUser.profileName}</h1>
 					<form >
 						<div className="w-full border border-gray-200">
 							<div className="px-4 py-2 bg-white dark:bg-gray-800">
