@@ -2,6 +2,7 @@ import {z} from 'zod'
 import {ThreadSchema} from "./thread.validator";
 import {sql} from "../../utils/database.utils";
 
+
 /**
  * The shape of a thread in the thread table in the database
  * @property threadId {string} the primary key
@@ -68,7 +69,7 @@ export async function selectThreadsByProfileName(profileName: string): Promise<T
                                       thread_image_url
                                FROM thread JOIN profile ON thread.thread_profile_id = profile.profile_id
                                WHERE profile.profile_name = ${profileName}
-                               AND thread_reply_thread_id IS NULL`
+                               AND thread_reply_thread_id IS NULL ORDER BY thread_datetime DESC`
 
     // parse the threads from the database into an array of Thread objects
     return ThreadSchema.array().parse(rowList)

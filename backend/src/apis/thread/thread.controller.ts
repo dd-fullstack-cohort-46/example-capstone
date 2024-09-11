@@ -136,7 +136,7 @@ export async function getThreadsByProfileNameController (request: Request, respo
     try {
 
         // validate the incoming request threadProfileId with the uuid schema
-        const validationResult = PublicProfileSchema.pick({profileName: true}).safeParse(request.params.profileName)
+        const validationResult = PublicProfileSchema.pick({profileName: true}).safeParse(request.params)
 
         // if the validation fails, return a response to the client
         if (!validationResult.success) {

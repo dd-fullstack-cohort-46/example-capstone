@@ -1,3 +1,4 @@
+'use client'
 import {Button, Label, Modal, ModalBody, ModalHeader, TextInput} from "flowbite-react";
 import React from "react";
 
