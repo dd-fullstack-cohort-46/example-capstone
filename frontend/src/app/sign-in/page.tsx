@@ -6,7 +6,8 @@ import {Button, Label, TextInput} from "flowbite-react";
 import {SignUpFormModal} from "@/app/sign-in/sign-in-form/sign-up-form/SignUpFormModal";
 import {SignInForm} from "@/app/sign-in/sign-in-form/SignInForm";
 
-
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export default function Home(props: PageProps) {
 	return (
 		<>

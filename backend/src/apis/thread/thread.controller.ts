@@ -115,7 +115,7 @@ export async function getThreadsByThreadProfileIdController (request: Request, r
         const data = await selectThreadsByThreadProfileId(threadProfileId)
 
         // return the response with the status code 200, a message, and the threads as data
-        return response.json({status: 200, message: null, data})
+        return response.json({status: 418, message: null, data})
 
         // if there is an error, return the response with the status code 500, an error message, and null data
     } catch (error) {

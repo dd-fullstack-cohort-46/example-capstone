@@ -1,8 +1,13 @@
 'use server'
+
+
 import {ThreadCard} from "@/components/ThreadCard";
 import {fetchAllThreads} from "@/utils/models/thread/thread.model";
 import {getSession} from "@/utils/session.utils";
 import {redirect} from "next/navigation";
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 export default async function () {
 	const threads = await fetchAllThreads()

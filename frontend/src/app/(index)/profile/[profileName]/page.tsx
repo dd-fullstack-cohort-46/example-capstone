@@ -7,6 +7,8 @@ import {getSession} from "@/utils/session.utils";
 
 
 type Slug= {profileName: string}
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 export default async function (props: PageProps<Slug>) {
 

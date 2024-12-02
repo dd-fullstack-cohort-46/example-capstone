@@ -1,0 +1,24 @@
+
+services:
+  frontend:
+    extends:
+      file: docker-compose.yml
+      service: frontend
+  backend:
+    extends:
+      file: docker-compose.yml
+      service: backend
+  sql:
+    extends:
+      file: docker-compose.yml
+      service: sql
+  redis:
+    extends:
+      file: docker-compose.yml
+      service: redis
+volumes:
+  sql:
+    driver: local
+  redis:
+    driver: local
+
